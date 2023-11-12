@@ -1,20 +1,44 @@
-Jira Ticket:
+#!/bin/bash
 
-Task Title: Set up new Git repository and create development branch for 'new-project'
+# Step 1: Create a New Directory
+mkdir new-project
 
-Task Description:
+# Step 2: Change to the Project Directory
+cd new-project
 
-As a developer, I need a new GitHub repository for 'new-project' and i need a development branch so that I can work on new features without affecting the main branch. 
-Readme file should contain step-by-step instructions on how we can do it ourselves.
+# Step 3: Initialize a Git Repository
+git init
 
-Expected Results:
+# Step 4: Create and Edit README.md
+touch README.md
+echo "# My New Project" > README.md
 
-A new branch called "development" is created and the user is able to switch to it successfully.
-A new file called "README.md" is created and step-by-step instructions is added to it successfully.
-The changes to the "development" branch are committed with a commit message successfully.
-The changes from the "development" branch are merged into the "main" branch successfully.
+# Step 5: Stage README.md for Commit
+git add README.md
 
+# Step 6: Commit Changes
+git commit -m "init"
 
-Definition of Done (DoD):
+# Step 7: Create and Switch to the Development Branch
+git branch development
+git checkout development
 
-Link to new-project Readme file# new-project
+# Step 8: Add Instructions to README.md
+echo -e "\n## Project Setup Instructions\n\nFollow these steps to set up the project:" >> README.md
+
+# Step 9: Stage README.md for Commit in Development Branch
+git add README.md
+
+# Step 10: Commit Changes in Development Branch
+git commit -m "Add project setup instructions"
+
+# Step 11: Merge Development into Main Branch
+git checkout main
+git merge development
+
+# Step 12: Check Status and Ensure Up-to-Date
+git status
+
+# Step 13: Commit Changes in Main Branch
+git commit -m "Merge development into main"
+
